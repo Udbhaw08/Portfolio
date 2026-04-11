@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IMAGES } from "../constants/theme";
 import { RoleTypist } from "../components/ui/RoleTypist";
+import { LiquidEther } from "../components/ui/LiquidEther";
 
 
 /* ─── center atmosphere statement ──────────────────────────────────── */
@@ -63,6 +64,8 @@ export function Hero() {
       id="home"
       className="relative w-full h-screen min-h-[620px] overflow-hidden bg-background"
     >
+      <LiquidEther />
+
       {/* PHOTO — right-0 w-[70%] object-[53%_0%] scale-[1.12] */}
       <div
         className="absolute top-0 right-0 w-[70%] h-full pointer-events-none select-none"
