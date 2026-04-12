@@ -1,5 +1,6 @@
-import { useInView } from "../hooks/useInView";
-import { BorderGlow } from "../components/ui/BorderGlow";
+import { motion } from "framer-motion";
+import { Container } from "../../components/common/Container";
+import { BorderGlow } from "../../components/common/BorderGlow";
 
 const PROJECTS = [
   {
@@ -31,18 +32,28 @@ const PROJECTS = [
   },
 ];
 
-function ProjectRow({ index, tags, title, desc, type, liveUrl, glow, delay }) {
-  const [ref, visible] = useInView();
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+function ProjectRow({ index, tags, title, desc, type, liveUrl, glow }) {
   return (
-    <div
-      ref={ref}
-      className="mb-4 transition-all duration-500"
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(16px)",
-        transitionDelay: `${delay}ms`,
-      }}
-    >
+    <motion.div variants={itemVariants} className="mb-4">
       <BorderGlow
         backgroundColor="#0a0a0a"
         borderRadius={16}
@@ -96,48 +107,59 @@ function ProjectRow({ index, tags, title, desc, type, liveUrl, glow, delay }) {
           </div>
         </a>
       </BorderGlow>
-    </div>
+    </motion.div>
   );
 }
 
 export function Projects() {
-  const [ref, visible] = useInView();
-
   return (
-    <section id="works" ref={ref} className="pt-[120px] pb-24">
-      {/* section label */}
-      <div className="flex items-center justify-between mb-16">
-        <div className="flex items-center gap-4">
-          <span className="font-mono text-[10px] tracking-[0.24em] text-[#444] uppercase">03</span>
-          <div className="w-8 h-px bg-[#2a2a2a]" />
-          <span className="font-mono text-[10px] tracking-[0.24em] text-[#444] uppercase">Projects</span>
-        </div>
-        <a
-          href="#"
-          className="font-mono text-[10px] tracking-[0.18em] text-[#444] uppercase no-underline hover:text-[#888] transition-colors"
+    <section id="works" className="pt-[160px] pb-24">
+      <Container>
+        {/* section label */}
+        <motion.div 
+          initial={{ opacity: 0, x: -10 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex items-center justify-between mb-20"
         >
-          View all →
-        </a>
-      </div>
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-[10px] tracking-[0.24em] text-[#444] uppercase">03</span>
+            <div className="w-12 h-px bg-[#2a2a2a]" />
+            <span className="font-mono text-[10px] tracking-[0.24em] text-[#444] uppercase">Projects</span>
+          </div>
+          <a
+            href="#"
+            className="font-mono text-[10px] tracking-[0.18em] text-[#444] uppercase no-underline hover:text-[#888] transition-colors"
+          >
+            View all projects →
+          </a>
+        </motion.div>
 
-      {/* column headers */}
-      <div
-        className={`grid grid-cols-[48px_1fr_auto] lg:grid-cols-[48px_1fr_220px_100px] gap-6 mb-4 px-8 pb-4 border-b border-[#1c1c1c] transition-all duration-700 ${
-          visible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <span className="font-mono text-[9px] tracking-[0.22em] text-[#333] uppercase">#</span>
-        <span className="font-mono text-[9px] tracking-[0.22em] text-[#333] uppercase">Project</span>
-        <span className="font-mono text-[9px] tracking-[0.22em] text-[#333] uppercase hidden lg:block">Stack</span>
-        <span className="font-mono text-[9px] tracking-[0.22em] text-[#333] uppercase hidden lg:block text-right">Type</span>
-      </div>
+        {/* column headers */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-[48px_1fr_auto] lg:grid-cols-[48px_1fr_220px_100px] gap-6 mb-6 px-8 pb-4 border-b border-[#1c1c1c]"
+        >
+          <span className="font-mono text-[9px] tracking-[0.22em] text-[#333] uppercase">#</span>
+          <span className="font-mono text-[9px] tracking-[0.22em] text-[#333] uppercase">Project Title</span>
+          <span className="font-mono text-[9px] tracking-[0.22em] text-[#333] uppercase hidden lg:block text-center">Tech Stack</span>
+          <span className="font-mono text-[9px] tracking-[0.22em] text-[#333] uppercase hidden lg:block text-right">Category</span>
+        </motion.div>
 
-      {/* rows */}
-      <div>
-        {PROJECTS.map((p, i) => (
-          <ProjectRow key={p.index} {...p} delay={i * 80} />
-        ))}
-      </div>
+        {/* rows with intersection observer variants */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          {PROJECTS.map((p) => (
+            <ProjectRow key={p.index} {...p} />
+          ))}
+        </motion.div>
+      </Container>
     </section>
   );
 }
