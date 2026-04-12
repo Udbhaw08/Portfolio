@@ -2,31 +2,42 @@ import { GithubIcon, FigmaIcon, DiscordIcon } from "../ui/Icons";
 
 export function Footer() {
   return (
-    <footer className="pt-10 pb-10 mt-15 border-t border-border-dark flex justify-between items-center">
-      <div className="flex flex-col gap-1.5">
-        <span className="text-[15px] font-semibold tracking-[0.04em] text-foreground">Udbhaw</span>
-        <a href="mailto:udbhaw@example.com" className="text-[13px] text-muted no-underline">
-          udbhaw@example.com
-        </a>
-      </div>
+    <footer className="pt-8 pb-10 mt-8 border-t border-[#141414]">
+      <div className="flex justify-between items-center">
+        {/* left */}
+        <div className="flex flex-col gap-1">
+          <span className="font-mono text-[11px] tracking-[0.18em] text-[#2a2a2a] uppercase">Udbhaw</span>
+          <a
+            href="mailto:udbhaw@example.com"
+            className="font-mono text-[10px] text-[#252525] no-underline hover:text-[#555] transition-colors"
+          >
+            udbhaw@example.com
+          </a>
+        </div>
 
-      <p className="text-[12px] text-[#444] tracking-wider m-0">© 2025 Udbhaw. All rights reserved.</p>
+        {/* center */}
+        <p className="font-mono text-[9px] tracking-[0.16em] text-[#1e1e1e] uppercase m-0">
+          © 2026 Udbhaw
+        </p>
 
-      <div className="flex flex-col items-end gap-2">
-        <span className="text-[11px] font-medium tracking-widest uppercase text-muted">Socials</span>
-        <div className="flex gap-4 items-center">
-          <a href="#" aria-label="GitHub" className="opacity-60 transition-opacity cursor-pointer hover:opacity-100">
-            <GithubIcon />
-          </a>
-          <a href="#" aria-label="Figma" className="opacity-60 transition-opacity cursor-pointer hover:opacity-100">
-            <FigmaIcon />
-          </a>
-          <a href="#" aria-label="Discord" className="opacity-60 transition-opacity cursor-pointer hover:opacity-100">
-            <DiscordIcon />
-          </a>
+        {/* right — socials */}
+        <div className="flex items-center gap-5">
+          {[
+            { href: "#", label: "GitHub",  Icon: GithubIcon  },
+            { href: "#", label: "Figma",   Icon: FigmaIcon   },
+            { href: "#", label: "Discord", Icon: DiscordIcon },
+          ].map(({ href, label, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              className="cursor-pointer transition-opacity opacity-20 hover:opacity-60"
+            >
+              <Icon />
+            </a>
+          ))}
         </div>
       </div>
     </footer>
   );
 }
-

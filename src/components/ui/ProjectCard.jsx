@@ -1,7 +1,12 @@
+import { BorderGlow } from './BorderGlow';
+
 export function ProjectCard({ img, tags, title, desc, buttons, liveUrl, cacheUrl }) {
   return (
-    <div
-      className="flex flex-col cursor-pointer bg-background border border-border-dark transition-colors duration-250 hover:bg-[#111]"
+    <BorderGlow
+      className="flex flex-col cursor-pointer transition-colors duration-250"
+      backgroundColor="#0a0a0a"
+      borderRadius={0}
+      glowColor="40 80 80"
     >
       <div className="h-[220px] overflow-hidden bg-[#111] relative">
         {img ? (
@@ -45,7 +50,8 @@ export function ProjectCard({ img, tags, title, desc, buttons, liveUrl, cacheUrl
           )}
         </div>
       </div>
-    </div>
+    </BorderGlow>
   );
 }
+
 
