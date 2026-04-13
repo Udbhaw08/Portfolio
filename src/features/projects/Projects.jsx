@@ -13,7 +13,7 @@ const PROJECTS = [
     stats: ["Multi-modal", "Real-time", "Dynamic Routes"],
     tags: ["Node.js", "React", "MongoDB", "WebSockets", "AI Models"],
     github: "https://github.com/Udbhaw08/Transportation_PS",
-    live: "#",
+    live: "https://transportation-ps.vercel.app/",
   },
   {
     index: "02",
@@ -24,7 +24,7 @@ const PROJECTS = [
     stats: ["Multi-agent", "Evidence Graph", "LLM-powered"],
     tags: ["Python", "Node.js", "Graph Processing", "LLMs", "Solana"],
     github: "https://github.com/Udbhaw08/HEUREKA",
-    live: "#",
+    live: "https://fair-hiring-network.vercel.app/",
   },
   {
     index: "03",
@@ -46,7 +46,7 @@ const PROJECTS = [
     stats: ["MAVLink", "NED Control", "Live Telemetry"],
     tags: ["React", "FastAPI", "MAVLink", "WebSockets", "Python"],
     github: "https://github.com/Udbhaw08/mavlink",
-    live: "#",
+    live: "https://base-swart-psi.vercel.app/",
   },
 ];
 
