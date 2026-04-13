@@ -4,7 +4,8 @@
       "Bash(python \"C:\\\\Users\\\\udbha\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.5.0\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"developer portfolio personal brand dark minimal\" --design-system -p \"Udbhaw Portfolio\")",
       "Read(//c/Users/udbha/.claude/plugins/**)",
       "Bash(python \"C:/Users/udbha/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/src/ui-ux-pro-max/scripts/search.py\" \"developer portfolio personal brand dark minimal\" --design-system -p \"Udbhaw Portfolio\")",
-      "Bash(python \"C:/Users/udbha/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/src/ui-ux-pro-max/scripts/search.py\" \"portfolio dark theme accessibility animation\" --domain ux)"
+      "Bash(python \"C:/Users/udbha/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/src/ui-ux-pro-max/scripts/search.py\" \"portfolio dark theme accessibility animation\" --domain ux)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }

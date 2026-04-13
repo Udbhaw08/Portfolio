@@ -30,7 +30,7 @@ const itemVariants = {
 
 export function Skills() {
   return (
-    <section id="skills" className="pt-[160px] pb-24">
+    <section id="skills" className="pt-6 pb-24" style={{scrollMarginTop:"72px"}}>
       <Container>
         {/* section label */}
         <motion.div 

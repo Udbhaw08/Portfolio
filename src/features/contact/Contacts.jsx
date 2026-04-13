@@ -23,7 +23,7 @@ const itemVariants = {
 
 export function Contacts() {
   return (
-    <section id="contacts" className="pt-[160px] pb-32">
+    <section id="contacts" className="pt-6 pb-32" style={{scrollMarginTop:"72px"}}>
       <Container>
         {/* section label */}
         <motion.div 

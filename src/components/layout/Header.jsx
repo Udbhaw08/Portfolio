@@ -25,13 +25,9 @@ export function Header() {
       }`}
     >
       <Container className="max-w-[1440px] flex items-center justify-between">
-        {/* logo */}
-        <a
-          href="#home"
-          aria-label="Udbhaw — home"
-          className="font-mono text-[11px] tracking-[0.18em] uppercase text-[#555] no-underline hover:text-foreground transition-colors"
-        >
-          Udbhaw
+        {/* logo — intentionally empty, name lives in the hero intro */}
+        <a href="#home" aria-label="Home" className="block w-6 h-6">
+          <span className="block w-1.5 h-1.5 rounded-full bg-[#c8f55a] mt-2.5" />
         </a>
 
         {/* nav */}
@@ -39,12 +35,12 @@ export function Header() {
           <ul className="flex gap-8 list-none items-center m-0 p-0">
             {NAV_LINKS.map(({ label, href }, i) => (
               <li key={href} className="flex items-center gap-3">
-                <span className="font-mono text-[8px] tracking-[0.14em] text-[#252525]">
+                <span className="font-mono text-[8px] tracking-[0.14em] text-[#666]">
                   {String(i + 2).padStart(2, "0")}
                 </span>
                 <a
                   href={href}
-                  className="font-mono text-[10px] tracking-[0.14em] uppercase text-[#3a3a3a] transition-colors duration-200 no-underline hover:text-foreground"
+                  className="font-mono text-[10px] tracking-[0.14em] uppercase text-[#c0c0c0] transition-colors duration-200 no-underline hover:text-white"
                 >
                   {label}
                 </a>

@@ -1,30 +1,57 @@
-#custom-cursor {
+/* ─── Custom Arrow Cursor ─────────────────────────────────────────── */
+body,
+a, button, [role="button"], input, select, textarea {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='28' viewBox='0 0 24 28'><path d='M5 3L5 20L8.5 17L11.5 24L14 23L11 16L17 16Z' fill='%23c8f55a' stroke='%230a0a0a' stroke-width='1.2' stroke-linejoin='round'/></svg>") 5 3, auto;
+}
+
+/* ─── Click Burst Container ───────────────────────────────────────── */
+.cursor-burst {
   position: fixed;
-  width: 10px; height: 10px;
-  background: var(--accent, #c8f55a);
-  border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
   transform: translate(-50%, -50%);
 }
 
-#custom-cursor-trail {
-  position: fixed;
-  width: 36px; height: 36px;
-  border: 1px solid rgba(200,245,90,0.4);
+/* ─── Burst Dots ──────────────────────────────────────────────────── */
+.cursor-burst span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #c8f55a;
   border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: left 0.12s ease, top 0.12s ease, width 0.2s ease, height 0.2s ease;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 
-/* Hide default cursor globally to enforce the custom cursor */
-body {
-  cursor: none;
-}
+.cursor-burst span:nth-child(1) { animation: cb-burst1 0.38s ease-out forwards 0ms; }
+.cursor-burst span:nth-child(2) { animation: cb-burst2 0.38s ease-out forwards 20ms; }
+.cursor-burst span:nth-child(3) { animation: cb-burst3 0.38s ease-out forwards 40ms; }
+.cursor-burst span:nth-child(4) { animation: cb-burst4 0.38s ease-out forwards 10ms; }
+.cursor-burst span:nth-child(5) { animation: cb-burst5 0.38s ease-out forwards 30ms; }
+.cursor-burst span:nth-child(6) { animation: cb-burst6 0.38s ease-out forwards 50ms; }
 
-a, button, [role="button"], input, select, textarea {
-  cursor: none;
+@keyframes cb-burst1 {
+  0%   { transform: translate(0, 0) scale(1.2); opacity: 1; }
+  100% { transform: translate(-13px, -13px) scale(0); opacity: 0; }
+}
+@keyframes cb-burst2 {
+  0%   { transform: translate(0, 0) scale(1.2); opacity: 1; }
+  100% { transform: translate(13px, -13px) scale(0); opacity: 0; }
+}
+@keyframes cb-burst3 {
+  0%   { transform: translate(0, 0) scale(1.2); opacity: 1; }
+  100% { transform: translate(13px, 13px) scale(0); opacity: 0; }
+}
+@keyframes cb-burst4 {
+  0%   { transform: translate(0, 0) scale(1.2); opacity: 1; }
+  100% { transform: translate(-13px, 13px) scale(0); opacity: 0; }
+}
+@keyframes cb-burst5 {
+  0%   { transform: translate(0, 0) scale(1.2); opacity: 1; }
+  100% { transform: translate(0, -17px) scale(0); opacity: 0; }
+}
+@keyframes cb-burst6 {
+  0%   { transform: translate(0, 0) scale(1.2); opacity: 1; }
+  100% { transform: translate(-17px, 0) scale(0); opacity: 0; }
 }
